@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samar Ammar | Portfolio IA & Machine Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- NEW: Dark AI Theme --- */
+        :root {
+            --bg-main: #111827; /* Dark Slate Blue */
+            --bg-secondary: #1F2937; /* Slightly Lighter Slate */
+            --text-primary: #F9FAFB; /* Off-white */
+            --text-secondary: #9CA3AF; /* Muted Gray */
+            --border-color: #374151; /* Darker Border */
+            --accent-glow: #4F46E5; /* Indigo for accent */
+        }
+
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.65;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* --- Navigation Bar --- */
+        #navbar {
+            background-color: rgba(17, 24, 39, 0.7); /* Dark transparent bg */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-link:hover {
+            color: #FFFFFF;
+        }
+
+        /* --- Intro Section --- */
+        #intro h1 {
+            font-size: clamp(2rem, 5vw, 3.75rem);
+            line-height: 1.15;
+        }
+        #intro p {
+            font-size: 1.1rem;
+        }
+
+        /* --- Project Grid & Cards --- */
+        .project-card {
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+            transition: transform 0.3s ease-out;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+        }
+        .project-image-container {
+            overflow: hidden;
+            background-color: #374151; /* Darker placeholder bg */
+            border-radius: 0.25rem;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 4 / 3;
+        }
+        .project-image {
+            transform: scale(1);
+            transition: transform 0.5s ease-out;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.04);
+        }
+        .project-card h3 {
+            font-size: 1.35rem;
+            margin-top: 1rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+        .project-card .category {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Project Filters --- */
+        .filter-btn {
+            background: none; border: none; padding: 0.5rem 0;
+            margin: 0 0.75rem; font-size: 0.9rem;
+            font-weight: 500; color: var(--text-secondary);
+            position: relative; cursor: pointer; transition: color 0.3s ease;
+        }
+        .filter-btn:hover { color: var(--text-primary); }
+        .filter-btn.active { color: var(--text-primary); }
+        .filter-btn::after {
+            content: ''; position: absolute; width: 0%; height: 1px;
+            background-color: var(--accent-glow); bottom: 0;
+            left: 50%; transform: translateX(-50%); transition: width 0.3s ease;
+        }
+        .filter-btn.active::after { width: 100%; }
+
+        /* --- Footer --- */
+        .footer-link {
+            color: var(--text-secondary); font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover { color: var(--text-primary); }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-40">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-lg font-bold nav-link" style="font-family: 'Inter', sans-serif;">Samar Ammar</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="https://linkedin.com/in/samar-ammar-342163221/" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+                <a href="https://github.com/samaraxmmar" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
+                <a href="mailto:samrammar070@gmail.com" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="pt-20">
+        <section id="intro" class="py-24 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="font-bold mb-6 max-w-4xl mx-auto">Ingénieure IA & Machine Learning</h1>
+                <p class="max-w-3xl mx-auto" style="color: var(--text-secondary);">
+                   Je me spécialise dans le développement de solutions intelligentes, en particulier dans les domaines du Traitement du Langage Naturel (NLP) et de la Vision par Ordinateur.
+                </p>
+            </div>
+        </section>
+
+        <section id="projets" class="py-24" style="background-color: var(--bg-secondary);">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-center flex-wrap gap-x-2 gap-y-4 mb-16">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="computer-vision">Vision par Ordinateur</button>
+                    <button class="filter-btn" data-filter="nlp">NLP & LLMs</button>
+                    <button class="filter-btn" data-filter="data-analysis">Analyse de Données</button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+                    
+                    <a href="https://github.com/samaraxmmar/Finetuning-LLM-models/blob/main/Finetuining%20Codellama.ipynb" target="_blank" rel="noopener noreferrer" class="project-card" data-category="nlp">
+                        <div class="project-image-container"><img src="data:image/png;base64,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" alt="AI explaining code" class="project-image"></div>
+                        <h3>Fine-tuning de CodeLlama pour l'Explication de Code</h3><p class="category">LLM, Fine-Tuning, NLP</p>
+                    </a>
+
+                    <a href="my_portfolio/video.mp4" class="project-card" data-category="computer-vision">
+                        <div class="project-image-container"><video class="w-full h-auto object-cover project-image" preload="metadata" muted loop playsinline autoplay><source src="C:/Users/samar/OneDrive/Desktop/portfolio/Vidéo sans titre ‐ Réalisée avec Clipchamp (1).mp4" type="video/mp4"></video></div>
+                        <h3>Détection d'Équipements de Sécurité</h3><p class="category">Computer Vision, YOLOv11, Edge AI</p>
+                    </a>
+                    
+                    <a href="https://github.com/samaraxmmar/BERT-Model-Fine-Tuning-for-Text-Classification/blob/main/bert.ipynb" class="project-card" data-category="nlp">
+                        <div class="project-image-container"><img src="https://datadrivenscience.com/wp-content/uploads/2023/07/bert.png" alt="Abstract code" class="project-image"></div>
+                        <h3>Classification de Requêtes Financières</h3><p class="category">NLP, BERT, Fine-Tuning</p>
+                    </a>
+
+                    <a href="https://github.com/samaraxmmar/Deepseek_chat_rag/tree/main" class="project-card" data-category="nlp">
+                         <div class="project-image-container"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl6GeIRVLDZ_yTc5-of0WHVA4Q7aUW7A3p1w&s" alt="Abstract representation of a large language model" class="project-image"></div>
+                        <h3>DeepSeekChat Document QA</h3><p class="category">LLM, RAG, LangChain, Vector DB</p>
+                    </a>
+
+                    <a href="#" class="project-card" data-category="nlp">
+                        <div class="project-image-container"><img src="https://www.bitrix24.fr/upload/optimizer/converted/upload/medialibrary/969/tk77a2hm18nd0wbtgrczwo0a54a5ffo2.900w.webp?1748590801150" alt="Glowing data streams representing a chatbot" class="project-image"></div>
+                       <h3>Chatbot d'Automatisation Client</h3><p class="category">NLP, Rasa, Modèles légers</p>
+                   </a>
+
+                   <a href="#" class="project-card" data-category="data-analysis">
+                        <div class="project-image-container"><img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=2070&auto=format&fit=crop" alt="Financial graphs and charts" class="project-image"></div>
+                        <h3>Détection de Fraude Bancaire</h3><p class="category">Data Analysis, SVM, Random Forest</p>
+                    </a>
+
+                    <a href="#" class="project-card" data-category="nlp">
+                        <div class="project-image-container"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8QEg8PDxAPDxAQDQ8WERcXEBUXFhUVFRUWGBUVGBcYHCggGB0mHxYdIzEhJSkrMi8uFx81ODMtNygtLisBCgoKDg0OFxAQFy0fHx0tLS0tLisvLS0rLTUyKy0tLS0rKystKysvLi8rLTcrLS0rLS0tLTcrLS0tNy8tLSstLf/AABEIAKgBLAMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAABAgUABAYDB//EAEwQAAIBAwICBQcGDAQCCwAAAAECAwAEEQUSITEGExRBUSIyU2FxgZRSVHWR09QHIzM0QnKTobGztNIWJGKVksEVNVVzdIKiwtHh8P/EABoBAQEBAQEBAQAAAAAAAAAAAAEAAgMEBQb/xAAuEQACAQIDBwIGAwEAAAAAAAAAAQIDERIhMQRBUWGBodFSkRMiQnHB8DKx8RT/2gAMAwEAAhEDEQA/AOeopor9oegjWVlFZIyimipkFBpooZEaDTWGskRopooIDQaTRQQUGk0Goj306UpLFIqdYY5UcLgndsO7HDjjhx9VeErliWPEsxJPiSck1s6XNIkqtEu+QLIFGCfOjZScDjwBJ91alc/qAKjUqiaSCimiggoNNBoIKjUqjuHiKCA1lYaygCNZTRQRGg0miggNFJooIKKaKCCimigDqKjUqjX0jYV629rLJnqo5JMc9iM2M8s4HCvKup6FXKJHfKzRhnW12K9x1O7bIScPkEYHHhXGvUdODklf/SOdWwnKs4hmKKSGYRthSOeTjhivMWshCsI5CrttQ7Dhm+SpxxPqFfTP+nLUTw4nRt97fkSdbtWPdEArOnJ1zwGcA4zxrTsrqzEdram5jDWq6fNx2iMSLIWnKyZ8piJSMYHmV4v+2pvh/Zm5wKafOxIWGZiGKkCNiQwGSuMcwO6gWE+WUQzFkGXHVPlR3Fhjh76+mR6vayKzrPCks017vBkVfLEDQo+SeAbapz4tWna34UW5N5C72dtbgx9pRRNcr1mC8p4siK45E5PsrP8A21PR/ZXZ84EL7TJtbYGALbTtyeOM8s+qoYPga7TVtRtH054IpcOlxC2woAWkO8yuCGO5SWPHuAUeuuXsJUV4WcAoskZcYByoYFhg8+FeujUc4ttWsKZpbT4H6qNp8D9Vdbc6lYM6OF2lGfI7PHhi0aKrY3AHayltpHH3143epWTRyqibXIGMQxrvfEf4zPOMeS/kL8r6hVZO3yMTlyPbUa2Lgjhitc12ZAajUjUaAPexu2gkSZMbozkZGRyIOR7DXncW7xM0bqVdDhge6oVuRsJ3AnnEeIlVHZCw8gBUVioyBj9LB5D3c5ZO5GjUTW7aWPWM6iWBNn6TyqiniRlS3E8vCo2iW/lmd5RtxsWNFJfnnymICgew86HJEadbEWnzNG0yxuYk858YXPgCeBPqGTUra8KI6BISXyC7RhnAIwQpbIX2gZ9davhx4DOPVnnRmR7mGERbzMTMTgRCJuHHm0hIA4cRtDd3LjjJJojGqLABJw3SGVyTx5KnBV94PtrXao1WI95b12jWIiIIuPNgiViQCAWdVDueJ5k1K41KeSNIXkLRR7di4XhtGBxAzyNapoNGFcCNi6vDIiIY4FKcnSJUcjGMMVwG9pGfXTfQwDaYJWkVgcq0e14yMcGwSrA54FT3HIFahr0t53jZZI2KOjBlI5gjkazhtoR5Git253TddcBYkAdN6phQC4IyqE5wSvHHAFu4VpGlO4ETRSaDQQGimiogoporJBUalUaAOpqNSqNfTNhWVlFBGGg00VkgoNNBoIiaDTWGgiNFNFBAaDSaDUQGo1I0GgCNBqRooIBUaa29P055t5BWOOMAyyOcIgPLJ5knuUAk+FYlJLNkaVFWvV6eOBnu3PilrGFPs3zBvrAo2ad6W/8AhoPt6xj5P2IqzUatSmnelv8A4aD7ejZp3pb/AOGg+3o+JyfsRVGg1alNO9LqHwsH29Bj070uofCwfeKPicn7AVJrKtDHp3pdQ+Fg+8VmzTvS6h8Lb/eKPicn7EVOKw1alNN9LqPwtv8AeKNmnel1H4W3+8UfE5MipNZVqU030uo/C2/3ijbpvpdR+Ft/vFGPkyKk0VbbdN9LqPwtv94o6vTTw66/X1m1hIHtxPn6qMfJkVNFWN/pZjQTRyJcW5faJEBG1iMhJEbyo2xxweB7iarTSmnoQUVKo1EdTUalUa+maCt3R9Jnu5BDbpvfBJ44CjxYnkK0q6PoVqbWzzsbeS4geArPsB3Ihz5WeQ7+ZHt4VxrylGDcdQbyNXW+i93Zqskqo0THG9HDKD4HvH1VSV2Wp6ZEbGafTrqZrNJV66CTgUYlcHPfzX/5NWt3Bp9lc22mNYx3HWpEJZmP4wtKSoK+ABGeBH7q8cdraVmsTz5acbhiPm9MUZdlQYyzKoycDJOBk9wru7To7bW0mqzSx9pjsCgijJOGLqGG/HMAMBx8Cap9RvrK6FuY7Lss/aEWTq1HUOhbBHPgePh4itralJ/KsuPS43KfW9Jls5Wt5ihdQpOxsrhhkcSAfrFV5NfRbnQrYarPElmJYYrdHEasscSsVHlSEkeTxPAZz4GvLpXpMDae92IbOGaKdV/ysgaNlbAw2ABnyv3evFc47YvlT1du4Yjjte0aaymNvOULhFbyGJXDZxxIHh4VXV2X4WP+sG/8ND/7q42vRQm504yerQp5AaDSaDXUQNBpNBoAKKysNBBVpq77I7W2HBezRTP/AKpJ137j44Qqo8MHxNVVWfSHz4Po7T/6aKuM85RX3IqsUUmvrHQ3oRZwWwv9TCMTH1m2Q/iokPEbl5MxGOeeeMVivXjSjdg3Y+S0GvuNrDoGqAwRRQ7trbCLdoHIXGWjYqpYAkZxkceNfJ+l+gPp9y9ux3rgNE2MbkOcE+sYIPs9dc6O0qo8LVmClcpaDW5Y6ZPPu6mPftxu8pRjPLziK2v8M33oD+0i/vrs5xTs2JTmirg9Gb70B/aRf31V3MDRs0bja6nDDIOD7RwoU4vRkeVZXpBC8jLGil3dlVVHMsxwAKsp7SyhJSa5mkkU4fqIEaNW71DySLvx4gY8M0OSRFPRVqV070mo/D2/29ZjTfSaj8Pb/bVnHyZFSaDVyumwTBuyTSvKqs3VSwqjuFGW6tkdlYgAnacEgHGcVTZpUkxLXos+bhLZvyV6RbyD/vTtjb2pIVYHux6zVKjZAPiAfrq46Lfn2nfSVl/Pjqmh81f1R/Cs/U/3iBOo1Ko0kdTUalUa+maCrPQNcmsnMkW0h12yIwyrr4Ef8/bVbW9pGjXF2zJbR9YyLuYb1XAzj9IiuVXBhePQmb+sdKXnhNrFBb2kDOGdYlxvIxjJ9wPuFbdt06nVYt8FtPPCm2KZ0JkUe3PE/VXMGFt3V7Tv37duOO7ONuPHPCtvWNGuLRljuY+rZl3KN6tkZIzlSfCuDoUMoWXEzZG3pXSe5t5ZpsrN2jPXrIMrJnPMd3Pu7jip6v0plnWGJIobaCGQOsUa4UuDkFvH2cOf1UNFbez08WK2Y2Omj6a3AuZrsxwt18SxyxkHYyqMDmcj/wCzXjqfSuSa3ks1gt4IGdWVY1I24Ibx45PMmvKPordmS2hCx77qDrY/xgxsxkknu58qp7mJkZ42GGR2VhnOCpweI51xjSoSaw2dv1BZG70k1uS+mNxKqI2xVwucYXPiT41VVI1Gu8YqKwrRGgNBpNBpIDQaTQaACik0VERq06Q+fB9Haf8A00VVlWfSHz4Po7T/AOmirjL+cepFQ44H2GvuvSuwfU9JUWZBZ44JEXIAcLglMnhn296ivhldJ0T6a3WnZRNs0BYkxuSACeZRh5me/gR6s8a8+10ZTUZQ1iZkrnc6doVzJe6RKttJaQWWnxl90rMFZkIMChv0geDMPOHPkK578NN2j3cMa8WhtvxnqLsSF9uBn/zCtnUfwu3LoVgtY4HP6bSmXHrC7FGfbn2V86uZ3kdpJGZ3diXYnJYnmTXHZ6FTGpzysCR62mmyTAlOp8k4O+4gi+oSupPur1/w9ceFr8fY/bVoEUEV7WpXyf77miw/w/ceFr8fY/bVr3unSwhS/U4JwNlzBL9YikYj2mtU0YotLe1+9SLLo5OkdzC7sEXLqWPJC8bornwClg3uotZpNPmkWSPbKsZXaxIAJIw3AgsvDuPEHniq6rG11+8iRY47iUIowqkhgo8FDA7R6hWZRd7kbEeu2oA/yqbwI/KGxTuXGSMLwBOT48cZwBWN0gtSQz2sT4AHEpgAszN5IXHeuB6mz51ef+KL/wCcv/wp/bR/ii/+cv8A8Kf21ywPh3fgh6PYkvFuEAigguBPKR5sMSNvxnxwNqjvJAFUrMCSQu0EkgeA7h7q3tQ1i5uAFnnkkVTkKThQfHaMDPrxmtA1uMXe7Isui359p30lY/z46p4fNX9Ufwq46Lfn2nfSVj/Pjqng81f1R/Cr6unkCVFNFInU1GpVGvpmjBXafgwnMb38gAJjsGYe1Tkfwri6tdB1trTtG1FftFu0RySNoPePGvLtVN1KTit/kJaHbtp1sLg66cG0FsLgLwz2jkEx454/rU6/pi6hf6ckpwrad1suDjIByVHhkke7NfOzqU/U9l61+o3btnDG7x8fdVtddLp2ntbmNEie1gEYGSyuo57hw4Ed1eJ7JVi7p3aTS5K2RnCzob/R7KWG6zBaWbwxs1u0d6kjOVBO11zzOPXz51XzwWGn2tk01p22a8h61i0hUIpCnC45HDge48artS6Uo8cscFja2rT/AJZ1G5m55C5Hk5z+81Kw6X7YI7a5tLe8WH8gZOBQdwPA7h3d3AURoV7Z3avpfPTjfjzKzOvv7KCe+0aPaWgOnuVDMQ20JlMkEHPKud6OaTE3bZDZG6aO6kSPrJljt0UNjDMzZZuPge7xrWk6cytc2t20EW+2hdMBiFbcME8vJ9la+ndLOrint5rWK6gmuGl2sxXazHPMDiM1mNCvGFkty383zKzNn8IOiw23Y5oYxB2mFzJGr70Vk2Z2t3g7+7hwrj6veknSV75bZHiji7MsirsyF2tswAv6IAQAVRV7dnjONNKeppaBQaaDXcQNBpNBoADUakaiaCMqz6Q+fB9Haf8A00VVlWfSHz4Po7T/AOmirjL+cepFVVhCtjtXrGvQ+Bu2pCVz34y+ce2q6tyKSz2rvhvGfA3FbyJVJ7yFNsxA9RJ9tU+vQj3K6d8q/wD2cH99GNN+VqH7OD++vPrbH0F98dD90o6yx9BffHQ/dK558+xEyum/K1D9nb/31m3Tflah+zt/76h1tj6C++Oh+6UGaw+b33x0H3Ss58H2InjTflaj+zt/760L3qd34gzFNoz1gQNu454ISMcv31tGWw9Bf/HQfdKiZLD0F/8AHQfdKU2tz7EV9Bqx62w9Bf8Ax0H3SjrbD0F/8dB90pxv0sCtrMVY9bYegv8A46D7pWGWw9Bf/HQfdKMT4MSsIoqyM1h83vvj4PudV0hGTtBC7jtBYMQM8ASAATjvAGfAcqVK+4ix6Lfn2nfSVj/Pjqnh81f1R/Crjot+fad9JWP8+OqeHzV/VH8Kz9XTyZJUVKo0idTUalUa+maMr3sLCa4cRQRtLIQcADu7yTyA9Zrwro+hOsx2kkxlWQxTQmN3QeVHn9If/u4VxrTlCDcVdgyt1fo/d2gU3ELRqxwDkFSfDKkgH1eqqvFdprdjMtjI9pfdt08SqXVl/GRtlducjPPB/R87OMEmrn/CNtA0VvJZtcBlXr7ntaR7GOc7Yy4JA9n115FtqjFOebz0y/sMR8xxRiu7sejdlGmqtch5lspI+rZJCCyEbwvA7eOQCe7jitfVbOwa0ttShtmhRbwR3EPXMwdBnIDHkeA4jHnHwrS2yLeSf+q6G5xzW7gqCjAvjblSN2eRGeY9dbOsaTPaSdTcJsfYrY3A8DyOR7D9Vdv+Eee1xaR9nbrXtbcxP1rYjj3jKbeTcMjPrrYl6M2cmp3FvKsjRJpqyDM0jMG3KN25mJOAeRyPVXJbZkpNWVn+OYYj5jisxXf2FppFzazXgtJ4Vs3G5BOSZgw8kMTyySM45Y4GtXVdCtbmDT7qyja17Xd9Q6Fy4U7mXcCfDafDNdFtcb2cWt3a5YjiSKCK+qv0QsusNmbN0jCEC8N7Hu37cgmLfnGeHL3AcaobHSLCGxku7uF7iSHUJIcJKyLJtO0A8cBe/IGeFYW2weifbeWI4fFM8LodrqyMOYZSpHuPGu51LT7CJ9Jvo7d+z3jEPD1reS4KhSGznAJ4jkdvLjUPwsXFubp40gZbhTEZJesJDoY+ChOQxkcfVTHacc4xUdb9mVzhTRSaK9QhVn0h8+D6O0/+miqsqy6Q+fB9Haf/AE0VcZfzj1Iqq9VtpCpkEchjGcuEYqPa2MCvJuR9lfdbLprpMFvGhmij2QRgxIC+07R5A2Ahj3c/bXLaK0qdsMb3Bux8INFbOoyo8srxrsjeWRkX5KliVX3DhVr0Sisme47dt2C0kMWX2/jcjbjBGTz4cfZXWUsMcVhKi5sZY1ikkQqk6FoiceWoOCR761sV9U/CXq2lzWUQtGtpZt8KR7QOsiiXJIxjcg4Yxw86vllcqNV1I3asZTPQ2cu1ZOql6tiQr9W21iM5CtjBPA8B4U6hYTW79XPG0TlFYAjmrDIYeIruNC1dobSPs09nHc9l6tGlmiVom7VK7jY/ykYccdw91B041ya7uAJZoplhjRUMfmElVLkH9I7uZ9XCswqzlO1ssxOdoNJoruRGg0miskFBpooIsui359p30lY/z46p4fNX9Ufwq46Lfn2nfSVj/Pjqnh81f1R/CsfV08gTqNNFInU1GpVGvpmjKtujmvvZPIwjSaOWPZLG3AOvHv7uZ7jzNVNBrnUhGacZaMGdFqnSaNrd7O0tVtIZXDS/jC7PgggZI4DgPq7q926XQy9XLd6fDdXUUYRZGkIVgORkjxhjxzx7+WKoL7S7iAIZoniEgJQsMbgMZx9Y+utPFedbPRlHLPnf8hZF3adI2SC+g6lP86VJKnYseO5YwuMerIrxk1zNiNP6vh2nres3/wDp2bf35qpxQRW/g01u33Gx0Oq9KBcwRRS2kZnhSJEnEh3BUYHGzbjiBg8e81tnp0e1y3vZhmWz6jZ13LiDv3bOPLlj31zl3ps8SQyyxlI51LRNlTvAxxGDkcxzxzrTxXJbPRksllnvfUrIt9N10wWl1Z9UG7SY/L3427Mfo7Tu+sVM9JHFpa2iJta1ujMsm/JLbmYDbjhgt491UuK2rbSriWOWeOJmih/KsMYX6zk+PDOK1KnT1fG/XQrHRXPTC2kZrh9MtnvHTa0jMXjJx5/UsMZ/f66pzrx7CdP6oYN113Wb+/5OwL+/PuqooIoWz01uKxc6j0haW2sbZYxGbIsVffncSQQdu3hjHia9elPSVL8K7WkcNxuUySrISZAqlQu0rwHI8zyqgNBqVCCaaWn5KwGik0V1IKtdWTrIra5UZUQxwS/6JIRtQHw3RhSPHDeFVVbNhqEkBYptIdcSIyhkkXntdTwI/eO7Fcpp5NaojUoNWnbrM8WsSCfkXbqvuDKxH11nbbH5lL8afsqMb9L7eSKo1HNW5vbH5jL8afsqib2x+YyfHH7KhzfpfbyRV5oq07bY/MZPjj9lQb6x+Yy/HH7Ks436X28gVZNQNW3bbD5jL8cfsqDfWPzCX48/Y1Y36X28kVNBq27dY/MJP9wb7Gg31j8wk/3BvsaMb9L7eSKg0Vb9usfmEn+4N9jR26x+YS/7g32NGJ+l9vJFRRVv26w+YS/7g32NHbrD/s9z7b9yPeFjBP1irG/S+3kjOjC7JhduPxVkVnY8gXQ5gjB72aQKMeG48gapUXAA8ABVjqOqPMFj2xwwxklIo12oCebHJJdv9TEmtCsq97sgqNNFaI6mo1Ko19M0ZVr0V0ztV1BDjKlw0n6icWHvxj31VVddG9dFkLlljLTSwFIn3AdXnOTjHHjj6q4V8WB4NQZ2nSnrb61vi8MkbWV1vgLIVDQgbWIyOPAMeH+muds9M0+OwgvrpJ5Ge4kTYkm3eQXwCf0QApORx4VraH0xuYZC1w8t3C0To8bSHBDDmM5wf+RNad7ravZQWCxsOpunlDlgcqeswuMc/LHH1V4IUKsF8PRXWae62YJFprfR+0WbT3hadLW+jDbQpkkXgDtUAEkncB34OTyqz1DolbNBePHaXdm1tC0kbySBhOFDEgrkleA8BzHrFVEXTHY2mOsOTYQtG2W/KBlVSRw8nl6+de8nTG2Rb1ILSRe2xSiRnnLNvcEAjPAKNxOB4+qsyjtPy2vlz57+n3DM39Tjt2h6PJdAmF4GV8MVxuWMBsjuBxn1ZrSg6IxQz6ibsObSziLrhtpk38YgG7zgY9uKo9d11bm3sbcRlDaQlCd2d+QoyBjh5v766bp/qsyWdjYykdokhjkucDjhRhFb154n1p66MFWGGKdsV7+97+xZkdH6M2b2ttP2a4vmmVjOYZwDbt8kR7gWI5ccnh6wKrdN01Oxaw4a5UQOgRS7R7hnAEsYOC3qI4GoaL0ms4RbtJZHtFuBtkil6vrMYx1oHncuOc54+JrxfpaXi1NJIvL1B1bKtgR7eQxjJ4DnTgrXaz1W/n9+H2LMvrfonZCCBxbXd6slvukngmUtHIR5ohzxwfUcd+eNfO5VwSOPAkcRg+8dx9VdhpXS2zgMU/YNl3FHt3RSmOKQ4I3Og58+/P7hXJ31yZXklbG6WV3bHLLsWOPea7bNGqpSx3tzFXNc0Gk0V6xA0U0VkgqNNFBETWVhrKCCg00GggoNbUe8xSKEUokiO77fKXOUAz8kluXjitU1m4ETRSaKiCsrKyoiJopIr0W1kKs6xyMi+cwRiq+0gYHPvrOhHiaK3Dpk/Vdo6s9STwfK487byznnw5VkmlzrELgxkQtjD5Ujjy5HI5d9ZxLiRpUVN0K43AruUEZBGVPIjPMeuoYqIKjUqjQR1NRqVRr6ZoKKaKCMopooZAaDTQaGQZ91M0rOdzszt4kkn6zUaw1lpEFGayigjDQaw0GggNRqRqNQGUUmigiNFSqJrJAaKTRQQUGmg0EekNw0YkCnAkiKPwBypZWxxHiqnI45AqWoWTwNsfacqGRlO5JEPmujDzlOOftBwQQPCp28xjZXUKSpJAZFdeOc5VgQefeKw1vQHianBA8hCxo8jHkqqWJ9w41snUG6zrlSBW+SIIzHyx+TIK/u515Peyl3k3lHcYYpiPI4cMJgAcBwAxwqzInBp5ZpEkkitjHnf1pZSCDgqFVSxYeAGajaNbqHMyTStn8WEkVF78liyFiPADHtFaxFFFm9WRsW9+0aPGqw+WCGYwo0mCMFVdgSg/VxXibqTb1fWSdXknZvbZk8ztzjNeZoNFkQYHPAzRgc8DNNFRHvLfTPGsLSytEhyiFyVUgEDaDwHA91e0ixzvCltC0Uj4VkMwMZc4C7GkwVzx4Mx44we6tGg+BrLREpYmVmV1ZGUkMCCCCOYIPEGvKrCIJMJ3mmYTLGrRlzlZNnBoyx4htuNvd5OO8VoGi5HUVGsrK+oaCimsoIKKysrLIKDRWUEFYaysoIjRTWUERNBrKyggNFFZUBhoorKCCisrKyRE1lZWUEFBorKCMoNZWUERNBrKygDKKysoIiaKysoEDRWVlRBRWVlZADWxqkscjI8KCLMMfWrjyRIo2sUx+i2A2DyLMOWKysrLI//9k=" alt="Social media icons" class="project-image"></div>
+                        <h3>Analyse de Sentiments sur Réseaux Sociaux</h3><p class="category">NLP, PyTorch, NLTK</p>
+                    </a>
+
+                    <a href="#" class="project-card" data-category="computer-vision">
+                        <div class="project-image-container"><img src="https://meritis.fr/wp-content/uploads/2019/01/ArticleReconnaissance2.png" alt="Abstract soundwave visualization" class="project-image"></div>
+                        <h3>Reconnaissance des Émotions dans la Parole</h3><p class="category">Traitement Audio, MFCC, Deep Learning</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h4 class="text-2xl mb-4" style="font-family: 'Playfair Display', serif;">Contact</h4>
+            <a href="mailto:samrammar070@gmail.com" class="text-lg footer-link inline-block mb-8 hover:underline">samrammar070@gmail.com</a>
+            <div class="flex justify-center space-x-6 text-sm">
+                <a href="https://linkedin.com/in/samar-ammar-342163221/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+                <a href="https://github.com/samaraxmmar" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+            </div>
+             <p class="text-xs mt-16 text-gray-400">© 2025 Samar Ammar</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.from("#intro", { duration: 1, opacity: 0, y: 20, ease: 'power2.out', delay: 0.2 });
+            
+            const projectCards = gsap.utils.toArray('.project-card');
+            if (projectCards.length > 0) {
+                gsap.from(projectCards, {
+                    duration: 0.7, opacity: 0, y: 30,
+                    ease: 'power2.out', stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '#projets',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    }
+                });
+            }
+
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            if (filterButtons.length > 0 && projectCards.length > 0) {
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const filterValue = button.dataset.filter;
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        projectCards.forEach(card => {
+                            const show = (filterValue === 'all' || card.dataset.category === filterValue);
+                            gsap.to(card, {
+                                duration: 0.4,
+                                opacity: show ? 1 : 0,
+                                scale: show ? 1 : 0.97,
+                                display: show ? 'block' : 'none',
+                                ease: 'power2.out',
+                            });
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
